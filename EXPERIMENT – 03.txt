@@ -1,0 +1,108 @@
+EXPERIMENT – 03
+ 1: write a c program to input an array with n no. of elements and traverse the array using function.
+INPUT
+#include <stdio.h>
+
+void traverse(int a[], int n)
+{
+    int i;
+    printf("Printing the array:\n");
+    for(i = 0; i < n; i++)
+    {
+        printf("%d\n", a[i]);
+    }
+}
+
+int main()
+{
+    int a[100], n, i;
+
+    printf("Input the length of array: ");
+    scanf("%d", &n);
+
+    printf("Input the array elements:\n");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    traverse(a, n);
+
+    return 0;
+}
+OUTPUT
+
+Input the length of array: 5
+Input the array elements:12
+15
+22
+55
+67
+Printing the array:12
+15
+22
+55
+67
+
+
+ 2: write a c program to input an array with n no. of elements and perform searching operation using binary search technique
+INPUT
+#include <stdio.h>
+
+void binary_search(int a[], int n, int key)
+{
+    int lb = 0, ub = n - 1, mid;
+
+    while(lb <= ub)
+    {
+        mid = (lb + ub) / 2;
+
+        if(a[mid] == key)
+        {
+            printf("Element found");
+            return;
+        }
+        else if(a[mid] < key)
+        {
+            lb = mid + 1;
+        }
+        else
+        {
+            ub = mid - 1;
+        }
+    }
+
+    printf("Element is not present");
+}
+
+int main()
+{
+    int a[100], n, i, key;
+
+    printf("Input the number of elements: ");
+    scanf("%d", &n);
+
+    printf("Input sorted array elements:\n");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    printf("Input element to search: ");
+    scanf("%d", &key);
+
+    binary_search(a, n, key);
+
+    return 0;
+}
+OUTPUT
+
+Input the number of elements: 5
+Input sorted array elements:18
+55
+27
+92
+80
+
+Input element to search: 27
+Element found

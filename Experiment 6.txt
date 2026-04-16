@@ -1,0 +1,224 @@
+Experiment 6 
+1. write a c Program to Input and Display a M*N matrix and print it on the screen in matrix format.
+INPUT
+#include <stdio.h>
+
+int main() {
+    int A[10][10], i, j, m, n;
+
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &m, &n);
+
+    printf("Enter elements of the matrix:\n");
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < n; j++) {
+            scanf("%d", &A[i][j]);
+        }
+    }
+
+    printf("Matrix is:\n");
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < n; j++) {
+            printf("%d ", A[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+Output:
+input m and n :
+3
+3
+input Matrix 1 2 3 4 5 6 7 8 9 
+matrix is :
+1 2 3 
+4 5 6 
+7 8 9 
+
+
+2.Write a C program to check whether a matrix is sparse or not.
+Program:
+C
+#include <stdio.h>
+
+int main() {
+    int A[10][10], i, j, m, n, count = 0;
+
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &m, &n);
+
+    printf("Enter elements:\n");
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < n; j++) {
+            scanf("%d", &A[i][j]);
+            if(A[i][j] == 0)
+                count++;
+        }
+    }
+
+    if(count > (m * n) / 2)
+        printf("Sparse Matrix\n");
+    else
+        printf("Not a Sparse Matrix\n");
+
+    return 0;
+}
+Input:
+
+2 2
+0 0
+0 5
+Output:
+
+Sparse Matrix
+3. Program to Convert Matrix into Triplet Form
+Question:
+Write a C program to convert a sparse matrix into triplet form.
+Program:
+C
+#include <stdio.h>
+
+int main() {
+    int A[10][10], i, j, m, n, k = 1;
+
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &m, &n);
+
+    printf("Enter elements:\n");
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < n; j++) {
+            scanf("%d", &A[i][j]);
+        }
+    }
+
+    int triplet[100][3];
+
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < n; j++) {
+            if(A[i][j] != 0) {
+                triplet[k][0] = i;
+                triplet[k][1] = j;
+                triplet[k][2] = A[i][j];
+                k++;
+            }
+        }
+    }
+
+    triplet[0][0] = m;
+    triplet[0][1] = n;
+    triplet[0][2] = k - 1;
+
+    printf("Triplet form:\n");
+    for(i = 0; i < k; i++) {
+        printf("%d %d %d\n", triplet[i][0], triplet[i][1], triplet[i][2]);
+    }
+
+    return 0;
+}
+Input:
+
+2 2
+0 5
+0 3
+Output:
+
+2 2 2
+0 1 5
+1 1 3
+4. Program to Find Transpose of a Matrix
+Question:
+Write a C program to find transpose of a matrix.
+Program:
+C
+#include <stdio.h>
+
+int main() {
+    int A[10][10], i, j, m, n;
+
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &m, &n);
+
+    printf("Enter elements:\n");
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < n; j++) {
+            scanf("%d", &A[i][j]);
+        }
+    }
+
+    printf("Transpose of matrix:\n");
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < m; j++) {
+            printf("%d ", A[j][i]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+Output:
+enter n :3
+enter elements of the matrix :
+1 2 3 
+4 5 6
+7 8 9 
+the transpose matrix is "
+1 4 7
+2 5 8
+3 6 9
+ 
+5. Write a C program to add two matrices.
+Program:
+C
+#include <stdio.h>
+
+int main() {
+    int A[10][10], B[10][10], C[10][10];
+    int i, j, m, n;
+
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &m, &n);
+
+    printf("Enter elements of Matrix A:\n");
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < n; j++) {
+            scanf("%d", &A[i][j]);
+        }
+    }
+
+    printf("Enter elements of Matrix B:\n");
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < n; j++) {
+            scanf("%d", &B[i][j]);
+        }
+    }
+
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < n; j++) {
+            C[i][j] = A[i][j] + B[i][j];
+        }
+    }
+
+    printf("Resultant Matrix:\n");
+    for(i = 0; i < m; i++) {
+        for(j = 0; j < n; j++) {
+            printf("%d ", C[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+Input:
+
+2 2
+1 2
+3 4
+5 6
+7 8
+Output:
+
+6 8
+10 12

@@ -1,0 +1,93 @@
+Experiment 4: 
+Question 1.
+Write a C program to input an array with n elements and perform sorting operation using Bubble Sort.
+INPUT
+#include <stdio.h>
+
+void bubbleSort(int a[], int n)
+{
+    int i,j,temp;
+    for(i=0;i<n-1;i++)
+    {
+        for(j=0;j<n-i-1;j++)
+        {
+            if(a[j]>a[j+1])
+            {
+                temp=a[j];
+                a[j]=a[j+1];
+                a[j+1]=temp;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int a[100],n,i;
+    printf("Enter number of elements: ");
+    scanf("%d",&n);
+    printf("Enter array elements:\n");
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    bubbleSort(a,n);
+    printf("Sorted array:\n");
+    for(i=0;i<n;i++)
+        printf("%d ",a[i]);
+    return 0;
+}
+Output:
+
+Enter number of elements: 5
+Enter array elements:
+54
+16
+94
+35
+27
+Sorted array:
+16 27 35 54 94
+
+
+
+Question 2.
+Write a C program to input an array with n elements and perform sorting operation using Selection Sort.
+INPUT
+#include <stdio.h>
+
+void selectionSort(int a[], int n)
+{
+    int i,j,min,temp;
+    for(i=0;i<n-1;i++)
+    {
+        min=i;
+        for(j=i+1;j<n;j++)
+        {
+            if(a[j]<a[min])
+                min=j;
+        }
+        temp=a[i];
+        a[i]=a[min];
+        a[min]=temp;
+    }
+}
+
+int main()
+{
+    int a[100],n,i;
+    printf("Enter number of elements: ");
+    scanf("%d",&n);
+    printf("Enter array elements:\n");
+    for(i=0;i<n;i++)
+        scanf("%d",&a[i]);
+    selectionSort(a,n);
+    printf("Sorted array:\n");
+    for(i=0;i<n;i++)
+        printf("%d ",a[i]);
+    return 0;
+}
+Output:
+
+Enter number of elements: 5
+Enter array elements:54 12 47 02 48
+Sorted array:
+2 12 47 48 54

@@ -1,0 +1,113 @@
+1)Write a C program to create a stack of numbers and performs using user define function
+Push()
+Pop()
+display()
+Input:-
+#include <stdio.h>
+
+void push(int st[], int top, int n)
+{
+    int item;
+    if (top == n - 1)
+    {
+        printf("\nStack Overflow");
+    }
+    else
+    {
+        printf("\nEnter element to push: ");
+        scanf("%d", &item);
+        (top)++;
+        st[top] = item;
+    }
+}
+
+void pop(int st[], int top)
+{
+    if (top == -1)
+    {
+        printf("\nStack Underflow");
+    }
+    else
+    {
+        printf("\nPopped element: %d", [top]);
+        (*top)--;
+    }
+}
+
+void display(int st[], int top)
+{
+    int i;
+    if (top == -1)
+    {
+        printf("\nStack is empty");
+    }
+    else
+    {
+        printf("\nDisplaying the stack:\n");
+        for (i = top; i >= 0; i--)
+        {
+            printf("%d\n", st[i]);
+        }
+    }
+}
+
+int main()
+{
+    int st[100], top = -1, n, ch;
+
+    printf("\nEnter stack size: ");
+    scanf("%d", &n);
+
+    printf("\nStack Operations");
+    printf("\n1. Push");
+    printf("\n2. Pop");
+    printf("\n3. Display");
+    printf("\n4. Exit");
+
+    do
+    {
+        printf("\n\nEnter your choice: ");
+        scanf("%d", &ch);
+
+        switch (ch)
+        {
+            case 1:
+                push(st, &top, n);
+                break;
+
+            case 2:
+                pop(st, &top);
+                break;
+
+            case 3:
+                display(st, top);
+                break;
+
+            case 4:
+                printf("\nExiting...");
+                break;
+
+            default:
+                printf("\nInvalid choice");
+        }
+
+    } while (ch != 4);
+
+    return 0;
+}
+Output:-
+Enter stack size: 5
+Enter your choice: 1
+Enter element to push: 10
+
+Enter your choice: 1
+Enter element to push: 20
+
+Enter your choice: 1
+Enter element to push: 30
+
+Enter your choice: 3
+Displaying the stack:
+30
+20
+10

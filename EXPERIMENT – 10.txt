@@ -1,0 +1,80 @@
+EXPERIMENT – 10
+
+1.write a c program to create a single linked list and perform the following operation 
+(1) Traversing
+INPUT
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node
+{
+    int data;
+    struct node *link;
+};
+
+int main()
+{
+    struct node *head = NULL, *temp, *p;
+    int n, i;
+
+    printf("Input the number of nodes: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+    {
+        temp = (struct node*)malloc(sizeof(struct node));
+
+        printf("Input the node data: ");
+        scanf("%d", &temp->data);
+
+        temp->link = NULL;
+
+        if(head == NULL)
+        {
+            head = temp;
+        }
+        else
+        {
+            p = head;
+            while(p->link != NULL)
+            {
+                p = p->link;
+            }
+            p->link = temp;
+        }
+    }
+
+    printf("Linked List elements are:\n");
+
+    p = head;
+    while(p != NULL)
+    {
+        printf("%d ", p->data);
+        p = p->link;
+    }
+
+    return 0;
+}
+
+output
+
+Input the node info part
+12
+do you want to continue 1 or 0
+1
+Input the node info part
+24
+do you want to continue 1 or 0
+1
+Input the node info part
+45
+do you want to continue 1 or 0
+1
+Input the node info part
+78
+do you want to continue 1 or 0
+0
+
+Linked List traversing
+12->24->45->78->NULL

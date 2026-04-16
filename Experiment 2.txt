@@ -1,0 +1,140 @@
+🔹 Experiment 2:
+ 1.To write a C program to perform insertion operation in an  integer array using function.
+INPUT
+#include <stdio.h>
+
+void arrayInsertion(int A[], int n, int loc, int value);
+
+int main() {
+    int A[100], n, loc, value, i;
+
+    printf("Input length: ");
+    scanf("%d", &n);
+
+    printf("Input Array:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &A[i]);
+    }
+
+    printf("Enter location and value: ");
+    scanf("%d %d", &loc, &value);
+
+    arrayInsertion(A, n, loc, value);
+
+    return 0;
+}
+
+void arrayInsertion(int A[], int n, int loc, int value) {
+    int i;
+
+    for(i = n; i >= loc; i--) {
+        A[i] = A[i - 1];
+    }
+
+    A[loc - 1] = value;
+
+    printf("Resulting Array:\n");
+    for(i = 0; i <= n; i++) {
+        printf("%d ", A[i]);
+    }
+}
+
+ Output:
+Input length: 5
+Input Array: 10 20 30 40 50
+Enter location and value: 3 25
+
+Resulting Array:
+10 20 25 30 40 50
+
+2.To write a C program to perform deletion operation in an array.
+INPUT
+#include <stdio.h>
+void arrayDeletion(int A[], int n, int loc);
+
+int main() {
+    int A[100], n, loc, i;
+
+    printf("Input length: ");
+    scanf("%d", &n);
+
+    printf("Input Array:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &A[i]);
+    }
+
+    printf("Enter location to delete: ");
+    scanf("%d", &loc);
+
+    arrayDeletion(A, n, loc);
+
+    return 0;
+}
+
+void arrayDeletion(int A[], int n, int loc) {
+    int i;
+
+    printf("%d is the deleted element\n", A[loc - 1]);
+
+    for(i = loc - 1; i < n - 1; i++) {
+        A[i] = A[i + 1];
+    }
+
+    printf("Resulting Array:\n");
+    for(i = 0; i < n - 1; i++) {
+        printf("%d ", A[i]);
+    }
+}
+ Output:
+Input length: 5
+Input Array: 10 20 30 40 50
+Enter location: 2
+
+30 is the deleted element
+Resulting Array:
+10 20 40 50
+
+ 3:To write a C program to perform searching operation in an array using linear search technique through function.
+INPUT
+#include <stdio.h>
+
+void arraySearch(int A[], int n, int x);
+
+int main() {
+    int A[100], n, x, i;
+
+    printf("Input length: ");
+    scanf("%d", &n);
+
+    printf("Input Array:\n");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &A[i]);
+    }
+
+    printf("Enter value to be searched: ");
+    scanf("%d", &x);
+
+    arraySearch(A, n, x);
+
+    return 0;
+}
+
+void arraySearch(int A[], int n, int x) {
+    int i;
+
+    for(i = 0; i < n; i++) {
+        if(A[i] == x) {
+            printf("Element found at position %d", i + 1);
+            return;
+        }
+    }
+
+    printf("Element not found");
+}
+
+ Output:
+Input length: 5
+Input Array: 10 20 30 40 50
+Enter value to be searched: 30
+
+Element found at position 2
